@@ -1,26 +1,26 @@
-from notebook.services.contents.filemanager import FileContentsManager
+import hashlib
 import os
+from notebook.services.contents.filemanager import FileContentsManager
 
 class CentralizedCheckpoints(FileContentsManager):
+    def get_hashed_path(self, path):
+        # Create a unique hash based on the full path
+        hash_object = hashlib.sha256(path.encode())
+        hash_path = hash_object.hexdigest()
+        # Store checkpoints in subdirectories based on the hash
+        return os.path.join('/opt/checkpoints', hash_path)
+
     def create_checkpoint(self, path):
-        # Define your custom checkpoint directory
-        checkpoint_dir = '/opt/checkpoints'
+        checkpoint_dir = self.get_hashed_path(path)
         if not os.path.exists(checkpoint_dir):
             os.makedirs(checkpoint_dir)
 
-        # Generate a unique path for each notebook
-        checkpoint_path = os.path.join(checkpoint_dir, path.replace('/', '_'))
-        if not os.path.exists(os.path.dirname(checkpoint_path)):
-            os.makedirs(os.path.dirname(checkpoint_path))
-
-        # Save checkpoint
-        return super().create_checkpoint(checkpoint_path)
+        # Save checkpoint in the hashed directory
+        return super().create_checkpoint(path)
 
     def delete_checkpoint(self, checkpoint_id, path):
-        # Define custom deletion logic if needed
         return super().delete_checkpoint(checkpoint_id, path)
 
     def list_checkpoints(self, path):
-        checkpoint_dir = '/opt/checkpoints'
-        checkpoint_path = os.path.join(checkpoint_dir, path.replace('/', '_'))
-        return super().list_checkpoints(checkpoint_path)
+        checkpoint_dir = self.get_hashed_path(path)
+        return super().list_checkpoints(path)
