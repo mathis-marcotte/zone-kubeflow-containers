@@ -163,3 +163,7 @@ COPY dbConnection/*.ora /opt/oracle/instantclient_23_5/network/admin/
 #give users permissions to edit the alias file
 RUN chmod a+w /opt/oracle/instantclient_23_5/network/admin
 RUN chown $NB_UID:$NB_GID /opt/oracle/instantclient_23_5/network/admin/tnsnames.ora
+# Adds the locale behavior for Oracle
+ENV NLS_LANG="AMERICAN_AMERICA.WE8MSWIN1252"
+ENV LD_LIBRARY_PATH="/opt/oracle/instantclient_23_5"
+ENV TNS_ADMIN="/opt/oracle/instantclient_23_5/network/admin"
