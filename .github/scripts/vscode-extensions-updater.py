@@ -167,7 +167,7 @@ def create_individual_prs(repo, outdated_extensions):
 
         # Stage and commit change
         repo.index.add([DOCKERFILE_PATH])
-        commit_msg = f"Update {ext['id']} to {ext['new_version']}"
+        commit_msg = f'update(vscode): extension "{ext["id"]}" version "{ext["old_version"]}" → "{ext["new_version"]}"'
         repo.index.commit(commit_msg)
 
         # Push branch
@@ -180,12 +180,12 @@ def create_individual_prs(repo, outdated_extensions):
             "Accept": "application/vnd.github.v3+json"
         }
         payload = {
-            "title": f"[vscode] Automated: {commit_msg}",
+            "title": commit_msg,
             "head": branch_name,
             "base": "master",
             "body": (
-                f"This draft PR updates `{ext['id']}` from `{ext['old_version']}` to `{ext['new_version']}`.\n\n"
-                "Labels: `vscode`, `updates`, `automated`\n\n"
+                f"This draft PR updates the VSCode extension `{ext['id']}` from `{ext['old_version']}` to `{ext['new_version']}`.\n\n"
+                "Labels: `dependencies`, `kind/task`, `ready for beta`\n\n"
                 "_Created automatically by the VSCode Extension Updater Bot._"
             ),
             "draft": True
