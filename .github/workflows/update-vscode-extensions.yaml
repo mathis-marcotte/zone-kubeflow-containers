@@ -24,6 +24,6 @@ jobs:
           pip install requests gitpython
           
       - name: Check for extension updates
-        run: python extension_checker.py
+        run: python .github/scripts/update-vscode-extensions.py
         env:
           GITHUB_TOKEN: ${{ secrets.NAMESPACE_CLEANER_TOKEN }}
