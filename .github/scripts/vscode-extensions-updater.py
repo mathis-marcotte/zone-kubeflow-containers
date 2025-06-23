@@ -12,10 +12,10 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]  # ../../ from .github/scripts
 DOCKERFILE_PATH = REPO_ROOT / "images/mid/Dockerfile"
 REPO_DIR = "."  # Root of your git repository
-REPO_OWNER = "bryanpaget"
+REPO_OWNER = "StatCan"
 REPO_NAME = "zone-kubeflow-containers"
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
-GIT_USERNAME = "Brybot"
+GIT_USERNAME = "extension-updater-bot"
 GIT_EMAIL = "bryan.paget@statcan.gc.ca"
 
 # ----------------------------
