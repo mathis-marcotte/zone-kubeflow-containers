@@ -180,12 +180,17 @@ def create_individual_prs(repo, outdated_extensions):
             "Accept": "application/vnd.github.v3+json"
         }
         payload = {
-            "title": f"Automated: {commit_msg}",
+            "title": f"[vscode] Automated: {commit_msg}",
             "head": branch_name,
             "base": "master",
-            "body": f"This PR updates `{ext['id']}` from `{ext['old_version']}` to `{ext['new_version']}`."
+            "body": (
+                f"This draft PR updates `{ext['id']}` from `{ext['old_version']}` to `{ext['new_version']}`.\n\n"
+                "Labels: `vscode`, `updates`, `automated`\n\n"
+                "_Created automatically by the VSCode Extension Updater Bot._"
+            ),
+            "draft": True
         }
-
+ 
         resp = requests.post(pr_url, headers=headers, json=payload)
         if resp.status_code == 201:
             print(f"🔀 PR created: {resp.json()['html_url']}")
