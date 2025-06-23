@@ -2,14 +2,11 @@ import re
 import os
 import requests
 from git import Repo
-from pathlib import Path
 
 # ----------------------------
 # Configuration
 # ----------------------------
 
-REPO_ROOT = Path(__file__).resolve().parents[2]  # ../../ from .github/scripts
-DOCKERFILE_PATH = REPO_ROOT / "images/mid/Dockerfile"
 REPO_DIR = "."  # Root of your git repository
 REPO_OWNER = "StatCan"
 REPO_NAME = "zone-kubeflow-containers"
