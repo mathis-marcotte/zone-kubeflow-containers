@@ -167,7 +167,7 @@ def create_individual_prs(repo, outdated_extensions):
 
         # Stage and commit change
         repo.index.add([DOCKERFILE_PATH])
-        commit_msg = f'update(vscode): extension "{ext["id"]}" version "{ext["old_version"]}" → "{ext["new_version"]}"'
+        commit_msg = f'update(vscode): extension {ext["id"]} version {ext["old_version"]} → {ext["new_version"]}'
         repo.index.commit(commit_msg)
 
         # Push branch
