@@ -145,8 +145,9 @@ def create_individual_prs(repo, outdated_extensions):
     repo.git.config("user.name", GIT_USERNAME)
     repo.git.config("user.email", GIT_EMAIL)
 
+    origin.fetch('master')
+    repo.git.checkout('-B', 'master', 'origin/master')
     base = repo.heads.master
-    origin.pull(base)
 
     for ext in outdated_extensions:
         short_id = ext["id"].replace(".", "-").replace("/", "-").replace("@", "-").replace(".vsix", "")
