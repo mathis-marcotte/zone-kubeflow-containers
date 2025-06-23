@@ -26,4 +26,4 @@ jobs:
       - name: Check for extension updates
         run: python .github/scripts/vscode-extensions-updater.py
         env:
-          GITHUB_TOKEN: ${{ secrets.NAMESPACE_CLEANER_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
