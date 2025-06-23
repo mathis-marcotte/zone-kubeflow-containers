@@ -4,7 +4,6 @@ import requests
 from git import Repo
 from pathlib import Path
 
-
 # ----------------------------
 # Configuration
 # ----------------------------
