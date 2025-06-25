@@ -23,7 +23,7 @@ ADD connect-to-filer.md /home/$NB_USER/connect-to-filer.md
 # Point conda to Artifactory repository
 RUN conda config --remove channels conda-forge --system
 
-ENV TESTING="abcd-defg-hijk-elemeno"
+ENV TESTING="abcd-defg-hijk-elemeno-moredata"
 
 USER $NB_USER
 ENTRYPOINT ["tini", "--"]
