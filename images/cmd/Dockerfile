@@ -2,6 +2,8 @@ USER root
 
 # Configure container startup
 
+ENV TEST2=value
+
 WORKDIR /home/$NB_USER
 EXPOSE 8888
 COPY start-custom.sh start-oms.sh restart-oms.sh /usr/local/bin/
