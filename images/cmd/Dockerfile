@@ -4,7 +4,7 @@ USER root
 
 ENV TEST2=value
 
-ENV TEST3=value2
+ENV TEST3=value21
 
 WORKDIR /home/$NB_USER
 EXPOSE 8888
