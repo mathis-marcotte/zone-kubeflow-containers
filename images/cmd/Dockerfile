@@ -29,7 +29,7 @@ RUN conda config --remove channels conda-forge --system
 
 ENV TESTING="abcd-defg-hijk-elemeno-moredata"
 
-ENV TESTING_SECOND="abcd-defg-hijk-elemeno-moredata - edited now"
+ENV TESTING_SECOND="abcd-defg-hijk-elemeno-moredata - edited now -edited-even-more"
 
 USER $NB_USER
 ENTRYPOINT ["tini", "--"]
