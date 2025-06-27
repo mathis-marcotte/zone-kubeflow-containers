@@ -6,7 +6,7 @@
 
 
 # Beta Process
-- [ ] Should this branch target "beta", if it is not doing so already?
+- [ ] Should this branch target "beta"
 
 ## Are there breaking changes?
 Ask yourself the next question;
