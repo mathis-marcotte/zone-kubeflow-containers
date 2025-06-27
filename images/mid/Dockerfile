@@ -207,17 +207,3 @@ ENV SPARK_HOME="/opt/conda/lib/python3.12/site-packages/pyspark"
 # If using the docker bit in other Dockerfiles, this must get written over in a later layer
 ENV DEFAULT_JUPYTER_URL="/rstudio"
 ENV GIT_EXAMPLE_NOTEBOOKS=https://gitlab.k8s.cloud.statcan.ca/business-transformation/aaw/aaw-contrib-r-notebooks.git
-
-# Final cleanup layer
-RUN apt-get clean autoclean \
-    && apt-get autoremove -y \
-    && rm -rf /var/lib/apt/lists/* \
-    && rm -rf /var/cache/apt/archives \
-    && rm -rf /tmp/* /var/tmp/* \
-    && find /usr -depth -name '*.pyc' -exec rm -rf '{}' + \
-    && find /usr -depth -name '__pycache__' -exec rm -rfv '{}' + \
-    && conda clean -afy \
-    && npm cache clean --force \
-    && rm -rf /root/.cache /root/.npm \
-    && fix-permissions $CONDA_DIR \
-    && fix-permissions /home/$NB_USER
