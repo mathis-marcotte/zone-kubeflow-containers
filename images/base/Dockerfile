@@ -17,7 +17,7 @@ ARG GIT_CRED_MANAGER_SHA=03c7b174a6f90e1ae860980ba5fda4490f04e5b9aaa802e2d469e72
 
 COPY clean-layer.sh /usr/bin/clean-layer.sh
 
-# Combined system updates and installations
+# System updates and installations
 RUN apt-get update --yes \
     && apt-get install --yes --no-install-recommends \
         language-pack-fr \
@@ -42,7 +42,8 @@ RUN apt-get update --yes \
         libtiff-dev \
         libfreetype-dev \
         libfreetype6 \
-        openjdk-8-jre-headless \  # Use headless Java to save space
+         # Use headless Java to save space
+        openjdk-8-jre-headless \
     && apt-get upgrade --yes libwebp7 \
     && rm -rf /var/lib/apt/lists/* \
     && chmod +x /usr/bin/clean-layer.sh
