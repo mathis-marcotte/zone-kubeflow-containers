@@ -173,7 +173,6 @@ RUN mkdir -p /etc/rstudio && \
     echo "www-frame-origin=none" >> /etc/rstudio/rserver.conf && \
     echo "www-enable-origin-check=1" >> /etc/rstudio/rserver.conf && \
     echo "www-same-site=lax" >> /etc/rstudio/rserver.conf && \
-    echo "session-timeout-minutes=10080" >> /etc/rstudio/rserver.conf && \
     echo "auth-stay-signed-in-days=7" >> /etc/rstudio/rserver.conf && \
     echo "auth-timeout-minutes=0" >> /etc/rstudio/rserver.conf && \
     echo "session-timeout-minutes=10080" >> /etc/rstudio/rsession.conf && \
