@@ -15,7 +15,7 @@ User documentation can be found at https://zone.pages.cloud.statcan.ca/docs/en/
 - [Beta Process](#beta-process)
 - [General Development Workflow](#general-development-workflow)
   - [Running A Zone Container Locally](#running-a-zone-container-locally)
-  - [Testing localy](#testing-localy)
+  - [Testing locally](#testing-locally)
   - [Testing On-Platform](#testing-on-platform)
   - [Overview of Images](#overview-of-images)
   - [Adding new software](#adding-new-software)
@@ -117,14 +117,14 @@ Tests are formatted using typical pytest formats
 
 ## Beta Process
 
-To reduce unexpected changes getting introduced into the images used by our users, 
-we introduced a beta process that should be followed when introducting changes to the codebase.
+To reduce unexpected changes getting added into the images used by our users, 
+we implemented a beta process that should be followed when introducing changes to the codebase.
 
 When a change needs to be done, new branches should be created from the `beta` branch. 
 Following this, new pull requests should target the `beta` branch, unless absolutely necessary to target master directly.
 
 Once a pull request has been approved, if the target branch is `beta`, it will automatically be tagged with the `ready for beta` label.
-This label will help us track which new additions are heading in beta. 
+This label will help us track which new additions are heading into beta. 
 With this, the pull request should not be merged manually as an automated process will handle that.
 
 We have in place a workflow(`beta-auto-merge`) which runs on a schedule and handles merging all the `ready for beta` labelled pull requests into the beta branch.
@@ -163,7 +163,7 @@ k8scc01covidacr.azurecr.io/sas              v2         2b9acb795079   19 hours a
 7. Run your image with `docker run -p 8888:8888 REPO/IMAGENAME:TAG`, e.g. `docker run -p 8888:8888 k8scc01covidacr.azurecr.io/sas:v2`.
 8. Open [http://localhost:8888](http://localhost:8888) or `<ip-address-of-server>:8888`.
 
-### Testing localy
+### Testing locally
 
 1. Clone the repo
 2. (optional) `make pull/IMAGENAME TAG=SOMEEXISTINGTAG` to pull an existing version of the image you are working on
