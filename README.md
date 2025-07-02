@@ -31,6 +31,8 @@ User documentation can be found at https://zone.pages.cloud.statcan.ca/docs/en/
 
 ## Introduction
 
+README CHANGES!
+
 Our Container images are based on the community driven [jupyter/docker-stacks](https://github.com/jupyter/docker-stacks).
 We chose those images because they are continuously updated and install the most common utilities.
 This enables us to focus only on the additional toolsets that we require to enable our data scientists.
