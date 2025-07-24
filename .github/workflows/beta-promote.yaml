@@ -21,25 +21,3 @@ jobs:
       run: |
         gh pr create --base master --title "chore: Promote beta to master" \
           --body "Automatically generated PR to merge beta to master"
-    # required step for the merge command to work
-    # - name: Set Git config
-    #   run: |
-    #     git config --local user.email "actions@github.com"
-    #     git config --local user.name "GitHub Actions"
-    
-    # - name: "Merge Beta to Master"
-    #   run: git merge origin/beta --verbose --ff --no-edit
-
-    # - name: "Push updated master to remote"
-    #   run: |
-    #     if [[ -z "$(git status --porcelain)" ]]; then
-    #       echo "Clean working tree. Pushing to master"
-    #       git push
-    #     else
-    #       echo "Dirty working tree. Not pushing to master"
-    #       git status
-
-    #       # fail the job
-    #       exit 1
-    #     fi
-
