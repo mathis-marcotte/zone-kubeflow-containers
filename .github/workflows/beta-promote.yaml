@@ -15,7 +15,6 @@ jobs:
     - name: "Checkout beta"
       uses: actions/checkout@v4
       with:
-        # fetch-depth: 0
         ref: beta
     
     - name: Create PR for beta to master
